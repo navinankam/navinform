@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nifty 200 Data Entry</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div id="loginForm">
+        <h2>Log In</h2>
+        <form id="login">
+            <div class="form-group">
+                <label for="loginId">Log In ID:</label>
+                <input type="text" id="loginId" placeholder="Log In ID" required />
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Password" required />
+            </div>
+            <button type="button" onclick="handleLogin()">Log In</button>
+        </form>
+    </div>
+
+    <div id="dataEntryForm" style="display:none;">
+        <h2>Nifty 200 Data Entry Form</h2>
+        <form id="dataForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="script">Script:</label>
+                    <select id="script">
+                        <option value="Select Stock">Select Stock</option>
+                        <option value="RELIANCE">Reliance Industries</option>
+                    <option value="TCS">Tata Consultancy Services</option>
+                    <option value="HDFCBANK">HDFC Bank</option>
+                    <option value="HINDUNILVR">Hindustan Unilever</option>
+                    <option value="INFY">Infosys</option>
+                    <option value="ICICIBANK">ICICI Bank</option>
+                    <option value="KOTAKBANK">Kotak Mahindra Bank</option>
+                    <option value="SBIN">State Bank of India</option>
+                    <option value="LT">Larsen & Toubro</option>
+                    <option value="HCLTECH">HCL Technologies</option>
+                    <option value="ITC">ITC Limited</option>
+                    <option value="BAJFINANCE">Bajaj Finance</option>
+                    <option value="AXISBANK">Axis Bank</option>
+                    <option value="MARUTI">Maruti Suzuki</option>
+                    <option value="M&M">Mahindra & Mahindra</option>
+                    <option value="HINDALCO">Hindalco Industries</option>
+                    <option value="SUNPHARMA">Sun Pharmaceutical Industries</option>
+                    <option value="ADANIGREEN">Adani Green Energy</option>
+                    <option value="ONGC">Oil and Natural Gas Corporation</option>
+                    <option value="TATASTEEL">Tata Steel</option>
+                    <option value="POWERGRID">Power Grid Corporation of India</option>
+                    <option value="NESTLEIND">Nestle India</option>
+                    <option value="WIPRO">Wipro Limited</option>
+                    <option value="TECHM">Tech Mahindra</option>
+                    <option value="CIPLA">Cipla Limited</option>
+                    <option value="ULTRACEMCO">UltraTech Cement</option>
+                    <option value="DRREDDY">Dr. Reddy's Laboratories</option>
+                    <option value="BRITANNIA">Britannia Industries</option>
+                    <option value="SHREECEM">Shree Cement</option>
+                    <option value="JSWSTEEL">JSW Steel</option>
+                    <option value="DIVISLAB">Divi's Laboratories</option>
+                    <option value="INDUSINDBK">IndusInd Bank</option>
+                    <option value="GAIL">GAIL India</option>
+                    <option value="HAVELLS">Havells India</option>
+                    <option value="HINDPETRO">Hindustan Petroleum Corporation</option>
+                    <option value="LICHSGFIN">LIC Housing Finance</option>
+                    <option value="COALINDIA">Coal India</option>
+                    <option value="RECLTD">Rural Electrification Corporation</option>
+                    <option value="TATAMOTORS">Tata Motors</option>
+                    <option value="SBI LIFE">SBI Life Insurance</option>
+                    <option value="ADANIPORTS">Adani Ports and SEZ</option>
+                    <option value="MINDTREE">Mindtree</option>
+                    <option value="UPL">UPL Limited</option>
+                    <option value="BIOCON">Biocon Limited</option>
+                    <option value="PVR">PVR Limited</option>
+                    <option value="JINDALSTEL">Jindal Steel & Power</option>
+                    <option value="TVSMOTOR">TVS Motor Company</option>
+                    <option value="TATACONSUMER">Tata Consumer Products</option>
+                    <option value="BOSCHLTD">Bosch Limited</option>
+                    <option value="ADANIGAS">Adani Gas</option>
+                    <option value="APOLLOHOSP">Apollo Hospitals</option>
+                    <option value="PGHH">Procter & Gamble Hygiene and Health Care</option>
+                    <option value="SYNGENE">Syngene International</option>
+                    <option value="LTI">L&T Technology Services</option>
+                    <option value="MUTHOOTFIN">Muthoot Finance</option>
+                    <option value="AMBUJACEM">Ambuja Cements</option>
+                    <option value="ICICIGI">ICICI Lombard General Insurance</option>
+                    <option value="DEEPAKNTR">Deepak Nitrite</option>
+                    <option value="RELIANCEIND">Reliance Industrial Infrastructure</option>
+                    <option value="BANKBARODA">Bank of Baroda</option>
+                    <option value="HINDZINC">Hindustan Zinc</option>
+                    <option value="PIDILITIND">Pidilite Industries</option>
+                    <option value="TATAPOWER">Tata Power Company</option>
+                    <option value="NTPC">NTPC Limited</option>
+                    <option value="HINDCOPPER">Hindustan Copper</option>
+                    <option value="SREINFRA">SREI Infrastructure Finance</option>
+                    <option value="RECLTD">Rural Electrification Corporation</option>
+                    <option value="INDUSTOWER">Indus Towers</option>
+                    <option value="HINDALCO">Hindalco Industries</option>
+                    <option value="SBILIFE">SBI Life Insurance</option>
+                    <option value="GMRINFRA">GMR Infrastructure</option>
+                    <option value="JISLJALEQS">Jain Irrigation Systems</option>
+                    <option value="LUPIN">Lupin Limited</option>
+                    <option value="KNRCON">KNR Constructions</option>
+                    <option value="NOCIL">NOCIL Limited</option>
+                    <option value="SRF">SRF Limited</option>
+                    <option value="BHEL">Bharat Heavy Electricals Limited</option>
+                    <option value="DABUR">Dabur India Limited</option>
+                    <option value="J&KBANK">Jammu & Kashmir Bank</option>
+                    <option value="CENTRALBK">Central Bank of India</option>
+                    <option value="NHPC">NHPC Limited</option>
+                    <option value="BANDHANBNK">Bandhan Bank</option>
+                    <option value="MCDOWELL-N">United Spirits</option>
+                    <option value="SOUTHINDIA">South Indian Bank</option>
+                    <option value="ICICI">ICICI Prudential Life Insurance</option>
+                    <option value="VAIBHAVGBL">Vaibhav Global</option>
+                    <option value="BIRLACORPN">Birla Corporation</option>
+                    <option value="HINDPETRO">Hindustan Petroleum Corporation</option>
+                    <option value="KPITTECH">KPIT Technologies</option>
+                    <option value="ZENSARTECH">Zensar Technologies</option>
+                    <option value="SIS">SIS Limited</option>
+                    <option value="COLPAL">Colgate-Palmolive (India)</option>
+                    <option value="SAIL">Steel Authority of India</option>
+                    <option value="ZOMATO">Zomato Limited</option>
+                    <option value="POLYCAB">Polycab India</option>
+                    <option value="VOLTAS">Voltas Limited</option>
+                    <option value="SREINFRA">SREI Infrastructure Finance</option>
+                        <!-- Add more stocks to complete the Nifty 200 list -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="marketStructure">Market Structure:</label>
+                    <select id="marketStructure">
+                        <option value="HH">HH</option>
+                        <option value="HL">HL</option>
+                        <option value="LH">LH</option>
+                        <option value="LL">LL</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="trend">Trend:</label>
+                    <select id="trend">
+                        <option value="Up">Up</option>
+                        <option value="Down">Down</option>
+                        <option value="Consolidation">Consolidation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="chartPattern">Chart Pattern:</label>
+                    <select id="chartPattern">
+                        <option value="Triangles">Triangles</option>
+                        <option value="Rectangle">Rectangle</option>
+                        <option value="Support">Support</option>
+                        <option value="Resistance">Resistance</option>
+                        <option value="Wedges">Wedges</option>
+                        <option value="Head & Shoulders">Head & Shoulders</option>
+                        <option value="Flags">Flags</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="candlePattern">Candle Pattern:</label>
+                    <select id="candlePattern">
+                        <option value="Bullish Engulfing">Bullish Engulfing</option>
+                        <option value="Bearish Engulfing">Bearish Engulfing</option>
+                        <option value="Hammer">Hammer</option>
+                        <option value="Pin Bar">Pin Bar</option>
+                        <option value="Dark Cloud">Dark Cloud</option>
+                        <option value="Morning Star">Morning Star</option>
+                        <option value="Evening Star">Evening Star</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rsi">RSI:</label>
+                    <select id="rsi">
+                        <option value="Bullish Divergence">Bullish Divergence</option>
+                        <option value="Bearish Divergence">Bearish Divergence</option>
+                        <option value="Hidden Bull Divergence">Hidden Bull Divergence</option>
+                        <option value="Hidden Bear Divergence">Hidden Bear Divergence</option>
+                    </select>
+                    <input type="number" id="rsiValue" placeholder="RSI Value" min="0" step="0.01" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="superTrendSignal">Super Trend Signal:</label>
+                    <select id="superTrendSignal">
+                        <option value="Bull Signal">Bull Signal</option>
+                        <option value="Bear Signal">Bear Signal</option>
+                        <option value="No Signal">No Signal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="superTrendConfirmation">Super Trend Confirmation:</label>
+                    <select id="superTrendConfirmation">
+                        <option value="Buy: Crossed Above Bear Signal">Buy: Crossed Above Bear Signal</option>
+                        <option value="Sell: Crossed Below Buy Signal">Sell: Crossed Below Buy Signal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="entryPrice">Entry Price:</label>
+                    <input type="number" id="entryPrice" placeholder="Entry Price" min="0" step="0.01" required />
+                </div>
+                <div class="form-group">
+                    <label for="stopLoss">Stop Loss:</label>
+                    <input type="number" id="stopLoss" placeholder="Stop Loss" min="0" step="0.01" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="target">Target:</label>
+                    <input type="number" id="target" placeholder="Target" min="0" step="0.01" required />
+                </div>
+                <div class="form-group">
+                    <label for="exitPrice">Exit Price:</label>
+                    <input type="number" id="exitPrice" placeholder="Exit Price" min="0" step="0.01" required />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" placeholder="Quantity" min="1" required />
+                </div>
+            </div>
+            <button type="button" id="submitButton" onclick="calculateValues()">Submit</button>
+        </form>
+        
+        <h3>Results</h3>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Script</th>
+                    <th>Market Structure</th>
+                    <th>Trend</th>
+                    <th>Chart Pattern</th>
+                    <th>Candle Pattern</th>
+                    <th>RSI</th>
+                    <th>RSI Value</th>
+                    <th>Super Trend Signal</th>
+                    <th>Super Trend Confirmation</th>
+                    <th>Entry Price</th>
+                    <th>Exit Price</th>
+                    <th>P&L %</th>
+                    <th>P&L Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="results"></tbody>
+        </table>
+        <button id="saveButton" onclick="saveResults()">Save Results</button>
+        <button id="exportButton" onclick="exportToExcel()">Export to Excel</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
